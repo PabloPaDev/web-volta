@@ -29,7 +29,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-[#5A3825]/30 bg-[#F7EFE5]/95 backdrop-blur-md shadow-sm transition-all duration-300">
       <div className="flex justify-between items-center h-16 w-full">
-        <div className="flex-shrink-0 pl-1 sm:pl-2 md:pl-0">
+        <div className="flex-shrink-0 pl-0 sm:pl-2 md:pl-0">
           <Link href="/" className="flex items-center group" aria-label="Inicio Voltà">
             <div className="relative h-12 w-28 sm:h-14 sm:w-36 md:h-16 md:w-40">
               <Image

@@ -8,13 +8,23 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "VOLTĀ",
-  description:
-    "Discover exceptional specialty coffee and join our coffee community. Artisanal brewing, quality beans, and memorable experiences.",
+  title: "VOLTĀ - Café de Especialidad",
+  description: "Café para los que se mueven de verdad",
   generator: "v0.app",
   icons: {
     icon: "/icon.png",
     apple: "/icon.png",
+  },
+  openGraph: {
+    title: "VOLTĀ - Café de Especialidad",
+    description: "Café para los que se mueven de verdad",
+    type: "website",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "VOLTĀ - Café de Especialidad",
+    description: "Café para los que se mueven de verdad",
   },
 }
 
