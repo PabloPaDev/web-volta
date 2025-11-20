@@ -92,6 +92,8 @@ export function Community() {
               <CarouselContent className="-ml-0">
                 {slides.map((slide, index) => {
                   const isC10 = slide.src.includes("c10.jpg")
+                  const isC4 = slide.src.includes("c4.jpg")
+                  const isC8 = slide.src.includes("c8.jpg")
                   return (
                     <CarouselItem key={slide.src} className="pl-0 md:basis-full">
                       <div className="relative h-[32rem] rounded-xl overflow-hidden shadow-2xl shadow-black/30 group">
@@ -99,7 +101,7 @@ export function Community() {
                           src={slide.src}
                           alt={slide.alt}
                           fill
-                          className={`object-cover transition-transform duration-700 group-hover:scale-105 ${isC10 ? "object-top" : ""}`}
+                          className={`${isC4 || isC8 ? "object-contain md:object-cover" : "object-cover"} transition-transform duration-700 group-hover:scale-105 ${isC10 ? "object-top" : ""}`}
                           sizes="(max-width: 768px) 100vw, 50vw"
                           priority={index === 0}
                           quality={index === 0 ? 85 : 75}
