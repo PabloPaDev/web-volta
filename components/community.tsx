@@ -90,22 +90,25 @@ export function Community() {
               }}
             >
               <CarouselContent className="-ml-0">
-                {slides.map((slide, index) => (
-                  <CarouselItem key={slide.src} className="pl-0 md:basis-full">
-                    <div className="relative h-64 sm:h-80 md:h-96 lg:h-[32rem] rounded-xl overflow-hidden shadow-2xl shadow-black/30 group">
-                      <Image
-                        src={slide.src}
-                        alt={slide.alt}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        priority={index === 0}
-                        quality={index === 0 ? 85 : 75}
-                        loading={index === 0 ? "eager" : "lazy"}
-                      />
-                    </div>
-                  </CarouselItem>
-                ))}
+                {slides.map((slide, index) => {
+                  const isC10 = slide.src.includes("c10.jpg")
+                  return (
+                    <CarouselItem key={slide.src} className="pl-0 md:basis-full">
+                      <div className="relative h-64 sm:h-80 md:h-96 lg:h-[32rem] rounded-xl overflow-hidden shadow-2xl shadow-black/30 group">
+                        <Image
+                          src={slide.src}
+                          alt={slide.alt}
+                          fill
+                          className={`object-cover transition-transform duration-700 group-hover:scale-105 ${isC10 ? "object-top" : ""}`}
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          priority={index === 0}
+                          quality={index === 0 ? 85 : 75}
+                          loading={index === 0 ? "eager" : "lazy"}
+                        />
+                      </div>
+                    </CarouselItem>
+                  )
+                })}
               </CarouselContent>
             </Carousel>
           </ScrollReveal>
