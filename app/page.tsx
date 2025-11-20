@@ -7,6 +7,7 @@ import { Products } from "@/components/products"
 import { OrderInfo } from "@/components/order-info"
 import { Footer } from "@/components/footer"
 import { CookieButton } from "@/components/cookie-button"
+import SplashCursor from "@/components/splash-cursor"
 
 // Lazy load components below the fold
 const About = dynamic(() => import("@/components/about").then(mod => ({ default: mod.About })), {
@@ -24,6 +25,7 @@ const ChatBotButton = dynamic(() => import("@/components/chatbot-button").then(m
 export default function Home() {
 	return (
 		<main className="min-h-screen bg-background">
+			<SplashCursor />
 			<Header />
 			<Hero />
 			<Products />
