@@ -94,7 +94,7 @@ export function Community() {
                   const isC10 = slide.src.includes("c10.jpg")
                   return (
                     <CarouselItem key={slide.src} className="pl-0 md:basis-full">
-                      <div className="relative h-64 sm:h-80 md:h-96 lg:h-[32rem] rounded-xl overflow-hidden shadow-2xl shadow-black/30 group">
+                      <div className="relative h-[32rem] rounded-xl overflow-hidden shadow-2xl shadow-black/30 group">
                         <Image
                           src={slide.src}
                           alt={slide.alt}
