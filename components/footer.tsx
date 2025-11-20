@@ -82,8 +82,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center sm:justify-start gap-2 text-xs sm:text-sm text-[#F7EFE5]/80 hover:text-[#DFAE67] transition-all duration-250 hover:translate-x-1 group"
               >
-                <span className="hidden sm:inline">Hecho con mucho VOLTÀ por PabloPaDev</span>
-                <span className="sm:hidden">PabloPaDev</span>
+                <span>Hecho con mucho VOLTÀ por PabloPaDev</span>
                 <div className="relative h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0 transition-transform duration-250 group-hover:scale-110 group-hover:rotate-6">
                   <Image src="/images/logo.png" alt="Logo PabloPaDev" fill className="object-contain" />
                 </div>
