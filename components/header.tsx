@@ -10,28 +10,36 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
+    let ticking = false
     const handleScroll = () => {
-      const scrollPosition = window.scrollY
-      setIsScrolled(scrollPosition > 50)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollPosition = window.scrollY
+          setIsScrolled(scrollPosition > 50)
+          ticking = false
+        })
+        ticking = true
+      }
     }
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#5A3825]/30 bg-[#F7EFE5]/95 backdrop-blur-md shadow-sm transition-all duration-300">
       <div className="flex justify-between items-center h-16 w-full">
-        <div className="flex-shrink-0 pl-0">
+        <div className="flex-shrink-0 pl-1 sm:pl-2 md:pl-0">
           <Link href="/" className="flex items-center group" aria-label="Inicio Voltà">
-            <div className="relative h-14 w-36 md:h-16 md:w-40">
+            <div className="relative h-12 w-28 sm:h-14 sm:w-36 md:h-16 md:w-40">
               <Image
                 src="/images/logo_volta.png"
                 alt="Voltà Café"
                 fill
-                sizes="(min-width: 768px) 160px, 144px"
+                sizes="(max-width: 640px) 112px, (max-width: 768px) 144px, 160px"
                 className="object-contain transition-all duration-300 group-hover:scale-105 drop-shadow-[0_2px_8px_rgba(42,26,18,0.2)]"
                 priority
+                quality={90}
               />
             </div>
           </Link>
@@ -99,7 +107,14 @@ export function Header() {
           >
             <span className="text-sm font-medium">VOLTĀ x</span>
             <div className="relative h-5 w-20 flex-shrink-0">
-              <Image src="/images/logo_Tano.png" alt="Tano" fill className="object-contain" />
+              <Image 
+                src="/images/logo_Tano.png" 
+                alt="Tano" 
+                fill 
+                className="object-contain" 
+                sizes="80px"
+                loading="lazy"
+              />
             </div>
           </Link>
         </nav>

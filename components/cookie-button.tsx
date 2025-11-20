@@ -2,22 +2,26 @@
 
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import { X } from "lucide-react"
 
-const STORAGE_KEY = "cookieConsentAccepted"
+const STORAGE_KEY = "cookieConsent"
 
 export function CookieButton() {
 	const [isVisible, setIsVisible] = useState(false)
 
 	useEffect(() => {
-		const hasAccepted = window.localStorage.getItem(STORAGE_KEY) === "true"
-		if (!hasAccepted) {
+		const consent = window.localStorage.getItem(STORAGE_KEY)
+		if (!consent) {
 			setIsVisible(true)
 		}
 	}, [])
 
 	const handleAccept = () => {
-		window.localStorage.setItem(STORAGE_KEY, "true")
+		window.localStorage.setItem(STORAGE_KEY, "accepted")
+		setIsVisible(false)
+	}
+
+	const handleDeny = () => {
+		window.localStorage.setItem(STORAGE_KEY, "denied")
 		setIsVisible(false)
 	}
 
@@ -58,18 +62,17 @@ export function CookieButton() {
 					<div className="flex items-center gap-3 sm:flex-shrink-0">
 						<button
 							type="button"
-							onClick={handleAccept}
-							className="px-5 py-2.5 sm:px-6 sm:py-3 bg-[#DFAE67] text-[#2A1A12] font-semibold text-sm sm:text-base rounded-lg hover:bg-[#C8964A] transition-all duration-250 shadow-md hover:shadow-lg active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#DFAE67]"
+							onClick={handleDeny}
+							className="px-4 py-2.5 sm:px-5 sm:py-3 bg-transparent border-2 border-[#F7EFE5]/40 text-[#F7EFE5] font-semibold text-sm sm:text-base rounded-lg hover:bg-[#F7EFE5]/10 hover:border-[#F7EFE5]/60 transition-all duration-250 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#DFAE67]"
 						>
-							Aceptar
+							Denegar
 						</button>
 						<button
 							type="button"
 							onClick={handleAccept}
-							className="p-2 text-[#F7EFE5] hover:text-[#DFAE67] hover:bg-[#5A3825]/50 rounded-lg transition-all duration-250 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#DFAE67]"
-							aria-label="Cerrar aviso de cookies"
+							className="px-5 py-2.5 sm:px-6 sm:py-3 bg-[#DFAE67] text-[#2A1A12] font-semibold text-sm sm:text-base rounded-lg hover:bg-[#C8964A] transition-all duration-250 shadow-md hover:shadow-lg active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#DFAE67]"
 						>
-							<X size={20} />
+							Aceptar
 						</button>
 					</div>
 				</div>

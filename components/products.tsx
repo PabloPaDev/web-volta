@@ -82,14 +82,16 @@ function ProductCard({ product, isOpen, onToggle }: ProductCardProps) {
         <p className="mt-2 text-xs md:text-sm leading-relaxed text-[#5A3825]">{product.description}</p>
       </div>
 
-      <div className="relative h-40 w-full bg-[#F7EFE5] rounded-lg overflow-hidden">
+      <div className="relative h-40 sm:h-44 md:h-48 w-full bg-[#F7EFE5] rounded-lg overflow-hidden">
         <Image
           src={product.image}
           alt={product.alt}
           fill
           className="object-contain transition-transform duration-500 group-hover:scale-110"
-          sizes="(min-width:768px) 18vw, 70vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 40vw"
           priority={product.id === 1}
+          quality={85}
+          loading={product.id === 1 ? "eager" : "lazy"}
         />
       </div>
 
@@ -169,18 +171,18 @@ export function Products() {
   }
 
   return (
-    <section id="products" className="py-16 md:py-20 bg-[#F7EFE5]">
-      <div className="max-w-5xl mx-auto px-0">
-        <ScrollReveal className="mb-12 text-center" delay={100}>
-          <h2 className="text-3xl md:text-5xl font-bold text-[#2A1A12] mb-4 leading-tight">Nuestros Cafés</h2>
-          <p className="mx-auto max-w-2xl text-sm md:text-base text-[#5A3825]">
+    <section id="products" className="py-12 sm:py-16 md:py-20 bg-[#F7EFE5]">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="mb-8 sm:mb-12 text-center" delay={100}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#2A1A12] mb-3 sm:mb-4 leading-tight px-2">Nuestros Cafés</h2>
+          <p className="mx-auto max-w-2xl text-xs sm:text-sm md:text-base text-[#5A3825] px-2">
             En grano o molido, listo para cualquier cafetera.
           </p>
         </ScrollReveal>
 
-        <div className="grid gap-y-12 gap-x-8 place-items-center md:grid-cols-2">
+        <div className="grid gap-8 sm:gap-y-12 sm:gap-x-8 place-items-center md:grid-cols-2">
           {products.map((product, index) => (
-            <ScrollReveal key={product.id} className="flex w-full justify-center" delay={160 + index * 140}>
+            <ScrollReveal key={product.id} className="flex w-full justify-center max-w-sm" delay={160 + index * 140}>
               <ProductCard
                 product={product}
                 isOpen={openCardIds.has(product.id)}

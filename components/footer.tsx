@@ -7,7 +7,7 @@ import { Instagram, Mail, MapPin } from "lucide-react"
 export function Footer() {
   return (
     <footer className="bg-[#5A3825] text-[#F7EFE5]">
-      <div className="mx-auto w-full px-0 py-8 sm:py-12 lg:py-16">
+      <div className="mx-auto w-full max-w-7xl px-0 py-8 sm:py-12 lg:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 mb-8 sm:mb-10 lg:mb-12 px-4 sm:px-6 lg:px-8">
           <div className="text-center sm:text-left">
             <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">VOLTĀ</h3>

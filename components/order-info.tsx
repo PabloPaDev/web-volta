@@ -9,9 +9,9 @@ import { Button } from "@/components/ui/button"
 
 export function OrderInfo() {
     return (
-        <section className="py-8 md:py-12 bg-[#F7EFE5]">
+        <section className="py-8 sm:py-10 md:py-12 bg-[#F7EFE5]">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
                     <ScrollReveal delay={100}>
                         <div className="rounded-xl border border-[#5A3825]/20 bg-[#E9DCC4] p-4 md:p-5 shadow-sm hover:shadow-md transition-all duration-250 h-full flex flex-col">
                             <div className="flex items-center gap-3 mb-3">
@@ -63,7 +63,14 @@ export function OrderInfo() {
                             <div className="flex items-center gap-3 mb-3">
                                 <div className="rounded-full bg-[#DFAE67]/15 p-2">
                                     <div className="relative h-4 w-12">
-                                        <Image src="/images/logo_Tano.png" alt="Tano" fill className="object-contain" />
+                                        <Image 
+                                            src="/images/logo_Tano.png" 
+                                            alt="Tano" 
+                                            fill 
+                                            className="object-contain" 
+                                            sizes="48px"
+                                            loading="lazy"
+                                        />
                                     </div>
                                 </div>
                                 <h3 className="text-base md:text-lg font-semibold text-[#2A1A12]">VOLTĀ x TANO</h3>
