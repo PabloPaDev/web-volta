@@ -38,3 +38,32 @@ export default function Home() {
 		</main>
 	)
 }
+
+<section className="mt-20 px-6 max-w-3xl mx-auto text-neutral-300 leading-relaxed">
+	<h2 className="text-2xl font-bold mb-4">
+		Tienda online de café de especialidad en Gandia – Bienvenido a VOLTĀ
+	</h2>
+
+	<p>
+		VOLTĀ es una tienda online especializada en <strong>café de especialidad en Gandia</strong>.
+		Seleccionamos granos de origen único, tostados premium y cafés con perfiles
+		sensoriales cuidados para ofrecer una experiencia real y honesta.
+	</p>
+
+	<br />
+
+	<p>
+		Todos nuestros cafés cuentan con trazabilidad completa y procesos de tostado
+		artesanales. Nuestra misión es acercar el café de especialidad a quienes buscan
+		calidad de verdad, sin complicaciones y con envío rápido disponible en Gandia
+		y el resto de España.
+	</p>
+
+	<br />
+
+	<p>
+		Si buscas <strong>comprar café de especialidad en Gandia</strong>, VOLTĀ es tu sitio.
+		Y si prefieres probarlo fuera de casa, también podrás disfrutarlo en cafeterías
+		locales como <strong>TANO</strong>, donde servimos nuestra selección de cafés.
+	</p>
+</section>

@@ -12,7 +12,14 @@ export function Footer() {
           <div className="text-center sm:text-left">
             <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">VOLTĀ</h3>
             <p className="text-sm sm:text-base md:text-lg text-[#F7EFE5]/80 leading-relaxed">
-              Café de especialidad para los que se mueven de verdad.
+              <div className="text-neutral-400 text-sm leading-relaxed mt-4 max-w-md">
+                <p>
+                  VOLTĀ, <strong>tienda online de café de especialidad en Gandia</strong>. Café
+                  de origen único y tostado premium. Disponible también en Pastisseria TANO,
+                  <strong> TANO</strong>.
+                </p>
+              </div>
+
             </p>
           </div>
 
