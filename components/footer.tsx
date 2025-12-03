@@ -15,7 +15,7 @@ export function Footer() {
               <div className="text-neutral-400 text-sm leading-relaxed mt-4 max-w-md">
                 <p>
                   VOLTĀ, <strong>tienda online de café de especialidad en Gandia</strong>. Café
-                  de origen único y tostado premium. Disponible también en Pastisseria TANO,
+                  de origen único y tostado premium. Disponible también en Pastisseria,
                   <strong> TANO</strong>.
                 </p>
               </div>

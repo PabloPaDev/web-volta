@@ -24,14 +24,34 @@ export function About() {
     const onVideoPause = () => setIsPlaying(false)
     const onVideoEnded = () => setIsPlaying(false)
 
+    // Asegurar que el video muestre el primer frame al cargar
+    const showFirstFrame = () => {
+      if (video.readyState >= 2) {
+        video.currentTime = 0
+      }
+    }
+
+    const onLoadedMetadata = () => {
+      video.currentTime = 0
+    }
+
     video.addEventListener('play', onVideoPlay)
     video.addEventListener('pause', onVideoPause)
     video.addEventListener('ended', onVideoEnded)
+    video.addEventListener('loadedmetadata', onLoadedMetadata)
+    video.addEventListener('canplay', showFirstFrame)
+
+    // Forzar mostrar primer frame si ya está cargado
+    if (video.readyState >= 2) {
+      video.currentTime = 0
+    }
 
     return () => {
       video.removeEventListener('play', onVideoPlay)
       video.removeEventListener('pause', onVideoPause)
       video.removeEventListener('ended', onVideoEnded)
+      video.removeEventListener('loadedmetadata', onLoadedMetadata)
+      video.removeEventListener('canplay', showFirstFrame)
     }
   }, [])
 
@@ -85,7 +105,7 @@ export function About() {
                 src="/images/quienes%20somos.mp4"
                 loop
                 playsInline
-                preload="metadata"
+                preload="auto"
                 muted={isMuted}
               />
               <button
