@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { MessageCircle, Store } from "lucide-react"
+import { MessageCircle, Store, Gift } from "lucide-react"
 import Link from "next/link"
 
 import { ScrollReveal } from "@/components/scroll-reveal"
@@ -9,18 +9,18 @@ import { Button } from "@/components/ui/button"
 
 export function OrderInfo() {
     return (
-        <section className="py-8 sm:py-10 md:py-12 bg-[#F7EFE5]">
+        <section className="pt-2 sm:pt-3 md:pt-4 pb-8 sm:pb-10 md:pb-12 bg-[#F7EFE5]">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
                     <ScrollReveal delay={100}>
-                        <div className="rounded-xl border border-[#5A3825]/20 bg-[#E9DCC4] p-4 md:p-5 shadow-sm hover:shadow-md transition-all duration-250 h-full flex flex-col">
-                            <div className="flex items-center gap-3 mb-3">
-                                <div className="rounded-full bg-[#DFAE67]/15 p-2">
+                        <div className="rounded-xl border border-[#5A3825]/20 bg-[#E9DCC4] p-2 md:p-3 shadow-sm hover:shadow-md transition-all duration-250 h-full flex flex-col">
+                            <div className="flex items-center gap-1 mb-1">
+                                <div className="rounded-full bg-[#DFAE67]/15 p-1">
                                     <MessageCircle className="text-[#5A3825] w-4 h-4" />
                                 </div>
                                 <h3 className="text-base md:text-lg font-semibold text-[#2A1A12]">Pedidos por WhatsApp</h3>
                             </div>
-                            <p className="text-sm text-[#5A3825] mb-4 leading-relaxed flex-grow">
+                            <p className="text-sm text-[#5A3825] mb-2 leading-relaxed flex-grow">
                                 Inicia tu pedido directamente por WhatsApp. Te lo llevamos a tu casa con la máxima comodidad y rapidez.
                             </p>
                             <Link
@@ -36,14 +36,14 @@ export function OrderInfo() {
                     </ScrollReveal>
 
                     <ScrollReveal delay={200}>
-                        <div className="rounded-xl border border-[#5A3825]/20 bg-[#E9DCC4] p-4 md:p-5 shadow-sm hover:shadow-md transition-all duration-250 h-full flex flex-col">
-                            <div className="flex items-center gap-3 mb-3">
-                                <div className="rounded-full bg-[#DFAE67]/15 p-2">
+                        <div className="rounded-xl border border-[#5A3825]/20 bg-[#E9DCC4] p-2 md:p-3 shadow-sm hover:shadow-md transition-all duration-250 h-full flex flex-col">
+                            <div className="flex items-center gap-1 mb-1">
+                                <div className="rounded-full bg-[#DFAE67]/15 p-1">
                                     <Store className="text-[#5A3825] w-4 h-4" />
                                 </div>
                                 <h3 className="text-base md:text-lg font-semibold text-[#2A1A12]">VOLTĀ en tu cafetería</h3>
                             </div>
-                            <p className="text-sm text-[#5A3825] mb-4 leading-relaxed flex-grow">
+                            <p className="text-sm text-[#5A3825] mb-2 leading-relaxed flex-grow">
                                 Lleva VOLTĀ a tu cafetería y ofrece café de especialidad premium a tus clientes. Calidad excepcional para tu negocio.
                             </p>
                             <Link
@@ -59,9 +59,9 @@ export function OrderInfo() {
                     </ScrollReveal>
 
                     <ScrollReveal delay={300}>
-                        <div className="rounded-xl border border-[#5A3825]/20 bg-[#E9DCC4] p-4 md:p-5 shadow-sm hover:shadow-md transition-all duration-250 h-full flex flex-col">
-                            <div className="flex items-center gap-3 mb-3">
-                                <div className="rounded-full bg-[#DFAE67]/15 p-2">
+                        <div className="rounded-xl border border-[#5A3825]/20 bg-[#E9DCC4] p-2 md:p-3 shadow-sm hover:shadow-md transition-all duration-250 h-full flex flex-col">
+                            <div className="flex items-center gap-1 mb-1">
+                                <div className="rounded-full bg-[#DFAE67]/15 p-1">
                                     <div className="relative h-4 w-12">
                                         <Image 
                                             src="/images/logo_Tano.png" 
@@ -73,9 +73,9 @@ export function OrderInfo() {
                                         />
                                     </div>
                                 </div>
-                                <h3 className="text-base md:text-lg font-semibold text-[#2A1A12]">VOLTĀ x TANO</h3>
+                                <h3 className="text-base md:text-lg font-semibold text-[#2A1A12]">x VOLTĀ</h3>
                             </div>
-                            <p className="text-sm text-[#5A3825] mb-4 leading-relaxed flex-grow">
+                            <p className="text-sm text-[#5A3825] mb-2 leading-relaxed flex-grow">
                                 Si no puedes esperar para tomar una taza VOLTĀ, ven a Tano y disfruta de tu café.
                             </p>
                             <Link
@@ -85,6 +85,29 @@ export function OrderInfo() {
                             >
                                 <Button size="sm" className="w-full bg-[#DFAE67] text-[#2A1A12] hover:bg-[#C8964A] transition-all duration-250 hover:scale-105 active:scale-95 text-xs">
                                     Tomar café en Tano
+                                </Button>
+                            </Link>
+                        </div>
+                    </ScrollReveal>
+
+                    <ScrollReveal delay={400}>
+                        <div className="rounded-xl border border-[#5A3825]/20 bg-[#E9DCC4] p-2 md:p-3 shadow-sm hover:shadow-md transition-all duration-250 h-full flex flex-col">
+                            <div className="flex items-center gap-1 mb-1">
+                                <div className="rounded-full bg-[#DFAE67]/15 p-1">
+                                    <Gift className="text-[#5A3825] w-4 h-4" />
+                                </div>
+                                <h3 className="text-base md:text-lg font-semibold text-[#2A1A12]">Merchandising VOLTĀ</h3>
+                            </div>
+                            <p className="text-sm text-[#5A3825] mb-2 leading-relaxed flex-grow">
+                                Descubre nuestra colección de productos VOLTĀ. Artículos exclusivos para los amantes del café de especialidad.
+                            </p>
+                            <Link
+                                href="https://apurando.com/volta"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Button size="sm" className="w-full bg-[#DFAE67] text-[#2A1A12] hover:bg-[#C8964A] transition-all duration-250 hover:scale-105 active:scale-95 text-xs">
+                                    Ver productos
                                 </Button>
                             </Link>
                         </div>

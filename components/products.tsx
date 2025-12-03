@@ -171,7 +171,7 @@ export function Products() {
   }
 
   return (
-    <section id="products" className="py-12 sm:py-16 md:py-20 bg-[#F7EFE5]">
+    <section id="products" className="pt-12 sm:pt-16 md:pt-20 pb-2 sm:pb-3 md:pb-4 bg-[#F7EFE5]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="mb-8 sm:mb-12 text-center" delay={100}>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#2A1A12] mb-3 sm:mb-4 leading-tight px-2">Nuestros Cafés</h2>
@@ -191,6 +191,12 @@ export function Products() {
             </ScrollReveal>
           ))}
         </div>
+
+        <ScrollReveal className="mt-12 sm:mt-16 mb-0" delay={500}>
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#2A1A12] text-left">
+            Más VOLTĀ
+          </h3>
+        </ScrollReveal>
 
       </div>
     </section>

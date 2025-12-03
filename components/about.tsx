@@ -1,21 +1,49 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { Play, Pause, Volume2, VolumeX } from "lucide-react"
 
 import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function About() {
   const videoRef = useRef<HTMLVideoElement>(null)
-  const [isMuted, setIsMuted] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [isMuted, setIsMuted] = useState(true)
 
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.muted = isMuted
-      if (!isMuted) {
+    }
+  }, [isMuted])
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    const onVideoPlay = () => setIsPlaying(true)
+    const onVideoPause = () => setIsPlaying(false)
+    const onVideoEnded = () => setIsPlaying(false)
+
+    video.addEventListener('play', onVideoPlay)
+    video.addEventListener('pause', onVideoPause)
+    video.addEventListener('ended', onVideoEnded)
+
+    return () => {
+      video.removeEventListener('play', onVideoPlay)
+      video.removeEventListener('pause', onVideoPause)
+      video.removeEventListener('ended', onVideoEnded)
+    }
+  }, [])
+
+  const handleTogglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause()
+      } else {
         void videoRef.current.play().catch(() => null)
       }
     }
-  }, [isMuted])
+  }
 
   const handleToggleMute = () => {
     setIsMuted((prev) => !prev)
@@ -26,7 +54,7 @@ export function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
           <ScrollReveal className="space-y-4 sm:space-y-6 text-left" delay={120}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">¿De donde nace VOLTĀ?</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">¿De dónde nace VOLTĀ?</h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-3 sm:mb-4 leading-relaxed">
               VOLTĀ nace de la pasión por el café de especialidad y el compromiso con el rendimiento deportivo.
               Creemos que cada atleta merece un café que potencie su energía y enfoque.
@@ -55,19 +83,37 @@ export function About() {
                 ref={videoRef}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 src="/images/quienes%20somos.mp4"
-                autoPlay
                 loop
                 playsInline
                 preload="metadata"
-                muted
+                muted={isMuted}
               />
               <button
                 type="button"
-                onClick={handleToggleMute}
-                className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 rounded-full bg-[#2A1A12]/80 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-[#F7EFE5] transition-all duration-250 hover:bg-[#2A1A12] hover:scale-110 active:scale-95 shadow-lg"
+                onClick={handleTogglePlay}
+                className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 rounded-full bg-[#DFAE67] p-2 sm:p-2.5 text-[#2A1A12] transition-all duration-250 hover:scale-110 active:scale-95 shadow-lg"
+                aria-label={isPlaying ? "Pausar video" : "Reproducir video"}
               >
-                {isMuted ? "Activar audio" : "Silenciar audio"}
+                {isPlaying ? (
+                  <Pause className="w-4 h-4 sm:w-5 sm:h-5 fill-[#2A1A12]" />
+                ) : (
+                  <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-[#2A1A12]" />
+                )}
               </button>
+              {isPlaying && (
+                <button
+                  type="button"
+                  onClick={handleToggleMute}
+                  className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 rounded-full bg-[#2A1A12]/80 backdrop-blur-sm p-2 sm:p-3 text-[#F7EFE5] transition-all duration-250 hover:bg-[#2A1A12] hover:scale-110 active:scale-95 shadow-lg"
+                  aria-label={isMuted ? "Activar audio" : "Silenciar audio"}
+                >
+                  {isMuted ? (
+                    <VolumeX className="w-4 h-4 sm:w-5 sm:h-5" />
+                  ) : (
+                    <Volume2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                  )}
+                </button>
+              )}
             </div>
           </ScrollReveal>
         </div>
